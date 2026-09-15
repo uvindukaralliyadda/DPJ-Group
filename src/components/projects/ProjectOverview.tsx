@@ -6,7 +6,10 @@ import { CATEGORY_LABELS } from "@/lib/projects";
 import { fadeUp } from "@/lib/animations";
 import type { Project } from "@/types";
 
-const metaOrder: { key: keyof Project; label: string }[] = [
+const metaOrder: {
+  key: "category" | "location" | "client" | "year" | "status";
+  label: string;
+}[] = [
   { key: "category", label: "Business Area" },
   { key: "location", label: "Location" },
   { key: "client", label: "Client" },
@@ -42,6 +45,7 @@ export function ProjectOverview({ project }: { project: Project }) {
                     <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-black/50">
                       {label}
                     </dt>
+
                     <dd className="mt-1 text-base font-medium text-black">
                       {key === "category"
                         ? CATEGORY_LABELS[project.category]
